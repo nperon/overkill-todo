@@ -37,7 +37,7 @@ and then locally in the project with:
 
 npm i angular-cli-ghpages --save-dev
 
-Chosen the app url to be https://nperon.github.io/overkill-todo/ the build can be performed with:
+Choosing the app url to be https://nperon.github.io/overkill-todo/ the build can be performed with:
 
 ng build --prod --base-href https://nperon.github.io/overkill-todo/
 
