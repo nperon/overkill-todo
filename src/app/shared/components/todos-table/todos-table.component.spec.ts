@@ -11,6 +11,7 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
   NO_ERRORS_SCHEMA
 } from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
 
 describe('TodosTableComponent', () => {
   let component: TodosTableComponent;
@@ -30,7 +31,8 @@ describe('TodosTableComponent', () => {
             strictStateImmutability: true,
             strictActionImmutability: true
           }
-        })
+        }),
+        HttpClientModule
       ],
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA,

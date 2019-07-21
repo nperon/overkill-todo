@@ -1,20 +1,20 @@
 import { Todo } from '../models/todo';
-import { TOGGLE_DONE } from './todos.actions';
+import { TOGGLE_DONE, ADD_TODO } from './todos.actions';
 
-const todosState: Todo[] = [
-  { todoId: 1, done: false, title: 'Eat icecream' },
-  { todoId: 3, done: false, title: 'Water the plants' },
-  { todoId: 4, done: false, title: 'Finish app' },
-  { todoId: 5, done: false, title: 'Go to the gym' },
-  { todoId: 8, done: false, title: 'Create more todos' },
-  { todoId: 9, done: false, title: 'Refrain procrastinating' },
-  { todoId: 2, done: true, title: 'Get a haircut' },
-  { todoId: 6, done: true, title: 'Beat Super Mario Odyssey' },
-  { todoId: 7, done: true, title: 'Check mailbox' },
-];
-
-export function todosReducer(state = todosState, action) {
+export function todosReducer(state = [], action) {
   switch ( action.type ) {
+    case ADD_TODO:
+      const largestTodoId = state.reduce(
+        ( builtUp, item ) => {
+          return item.todoId > builtUp ? item.todoId : builtUp;
+        },
+        0
+      );
+      return [
+          ...state,
+          { todoId: largestTodoId + 1, title: action.title, done: action.value }
+        ]
+        .sort( compare );
     case TOGGLE_DONE:
       return [...state]
         .map(
@@ -25,8 +25,9 @@ export function todosReducer(state = todosState, action) {
           }
         )
         .sort( compare );
+    default:
+      return state;
   }
-  return state;
 }
 
 const compare = ( a: Todo, b: Todo ) => {

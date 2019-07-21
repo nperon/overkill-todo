@@ -1,5 +1,5 @@
 import { todosReducer } from './todos.reducer'
-import { ToggleDoneAction } from './todos.actions';
+import {AddTodoAction, ToggleDoneAction} from './todos.actions';
 import { Todo } from '../models/todo';
 
 const todosState: Todo[] = [
@@ -41,5 +41,22 @@ describe('todosReducer', () => {
       expect(newState[i].title).toBe(expectedState[i].title);
       expect(newState[i].done).toBe(expectedState[i].done);
     }
+  });
+  it('AddTodoAction', () => {
+    const expectedState: Todo[] = [
+      { todoId: 2, title: 'todo 2', done: false },
+      { todoId: 1, title: 'todo 1', done: false },
+      { todoId: 4, title: 'todo 4', done: true },
+      { todoId: 3, title: 'todo 3', done: true },
+    ];
+    const text = 'one more todo';
+    const todoState = false;
+    const action = new AddTodoAction(text, todoState);
+    const newState = todosReducer(todosState, action);
+    expect(newState.length).toBe(expectedState.length + 1);
+    const expectedNew: Todo = newState[0];
+    expect(expectedNew.todoId).toBe(5);
+    expect(expectedNew.title).toBe(text);
+    expect(expectedNew.done).toBe(todoState);
   });
 });
