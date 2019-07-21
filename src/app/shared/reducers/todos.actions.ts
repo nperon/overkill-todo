@@ -3,7 +3,7 @@ export const ADD_TODO = 'ADD_TODO';
 
 export class ToggleDoneAction {
   readonly type = TOGGLE_DONE;
-  constructor(public todoId: number, public value: boolean) {}
+  constructor(public id: number, public value: boolean) {}
 }
 
 export class AddTodoAction {

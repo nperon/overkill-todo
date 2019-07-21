@@ -4,22 +4,22 @@ import { TOGGLE_DONE, ADD_TODO } from './todos.actions';
 export function todosReducer(state = [], action) {
   switch ( action.type ) {
     case ADD_TODO:
-      const largestTodoId = state.reduce(
+      const largestid = state.reduce(
         ( builtUp, item ) => {
-          return item.todoId > builtUp ? item.todoId : builtUp;
+          return item.id > builtUp ? item.id : builtUp;
         },
         0
       );
       return [
           ...state,
-          { todoId: largestTodoId + 1, title: action.title, done: action.value }
+          { id: largestid + 1, title: action.title, done: action.value }
         ]
         .sort( compare );
     case TOGGLE_DONE:
       return [...state]
         .map(
         item => {
-          return item.todoId === action.todoId
+          return item.id === action.id
             ? { ...item, done: action.value }
             : { ...item };
           }
@@ -33,7 +33,7 @@ export function todosReducer(state = [], action) {
 const compare = ( a: Todo, b: Todo ) => {
   if ( a.done ) {
     if ( b.done ) {
-      return (a.todoId > b.todoId) ? -1 : 1;
+      return (a.id > b.id) ? -1 : 1;
     } else {
       return 1;
     }
@@ -41,7 +41,7 @@ const compare = ( a: Todo, b: Todo ) => {
     if ( b.done ) {
       return -1;
     } else {
-      return (a.todoId > b.todoId) ? -1 : 1;
+      return (a.id > b.id) ? -1 : 1;
     }
   }
 };

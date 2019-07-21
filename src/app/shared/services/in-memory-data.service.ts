@@ -10,25 +10,25 @@ export class InMemoryDataService {
 
   createDb() {
     const todos = [
-      { todoId: 1, done: false, title: 'Eat icecream' },
-      { todoId: 3, done: false, title: 'Water the plants' },
-      { todoId: 4, done: false, title: 'Finish app' },
-      { todoId: 5, done: false, title: 'Go to the gym' },
-      { todoId: 8, done: false, title: 'Create more todos' },
-      { todoId: 9, done: false, title: 'Refrain procrastinating' },
-      { todoId: 2, done: true, title: 'Get a haircut' },
-      { todoId: 6, done: true, title: 'Beat Super Mario Odyssey' },
-      { todoId: 7, done: true, title: 'Check mailbox' },
+      { id: 1, done: false, title: 'Eat icecream' },
+      { id: 3, done: false, title: 'Water the plants' },
+      { id: 4, done: false, title: 'Finish app' },
+      { id: 5, done: false, title: 'Go to the gym' },
+      { id: 8, done: false, title: 'Create more todos' },
+      { id: 9, done: false, title: 'Refrain procrastinating' },
+      { id: 2, done: true, title: 'Get a haircut' },
+      { id: 6, done: true, title: 'Beat Super Mario Odyssey' },
+      { id: 7, done: true, title: 'Check mailbox' },
     ];
     return {todos};
   }
 
-  // Overrides the genId method to ensure that a hero always has an id.
-  // If the heroes array is empty,
-  // the method below returns the initial number (11).
-  // if the heroes array is not empty, the method below returns the highest
-  // hero id + 1.
+  // Overrides the genId method to ensure that a todo_ always has an id.
+  // If the todos array is empty,
+  // the method below returns the initial number (1).
+  // if the todos array is not empty, the method below returns the highest
+  // todo_ id + 1.
   genId(todos: Todo[]): number {
-    return todos.length > 0 ? Math.max(...todos.map(todo => todo.todoId)) + 1 : 11;
+    return todos.length > 0 ? Math.max(...todos.map(todo => todo.id)) + 1 : 1;
   }
 }
