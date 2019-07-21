@@ -5,6 +5,8 @@ import { MatTable } from '@angular/material/table';
 import { TodosTableDataSource } from './todos-table-datasource';
 import { Todo } from '../../models/todo';
 import { Store } from '@ngrx/store';
+import { MatCheckboxChange } from '@angular/material';
+import { FetchTodosAction, UpdateAndFetchTodoAction } from '../../reducers/todos.effects';
 
 @Component({
   selector: 'app-todos-table',
@@ -21,17 +23,23 @@ export class TodosTableComponent implements AfterViewInit, OnInit {
   displayedColumns = ['id', 'title', 'done'];
 
   constructor(
-    private store: Store<{todos: Todo[]}>
+    private store: Store<{todos: Todo[]}>,
   ) {
   }
 
   ngOnInit() {
     this.dataSource = new TodosTableDataSource(this.store);
+    this.store.dispatch(new FetchTodosAction());
   }
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
+  }
+
+  toggle(row: Todo, event: MatCheckboxChange) {
+    const action = new UpdateAndFetchTodoAction(row.id, row.title, event.checked);
+    this.store.dispatch(action);
   }
 }

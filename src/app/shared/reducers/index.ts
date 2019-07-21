@@ -5,8 +5,8 @@ import {
   createSelector,
   MetaReducer
 } from '@ngrx/store';
-import { environment } from '../../environments/environment';
-import { Todo } from '../shared/models/todo';
+import { environment } from '../../../environments/environment';
+import { Todo } from '../models/todo';
 import { todosReducer } from './todos.reducer';
 
 export interface State {
