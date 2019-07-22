@@ -9,16 +9,19 @@ export class InMemoryDataService {
   constructor() { }
 
   createDb() {
-    const todos = [
-      { id: 1, done: false, title: 'Eat icecream' },
-      { id: 3, done: false, title: 'Water the plants' },
-      { id: 4, done: false, title: 'Finish app' },
-      { id: 5, done: false, title: 'Go to the gym' },
-      { id: 8, done: false, title: 'Create more todos' },
-      { id: 9, done: false, title: 'Refrain procrastinating' },
-      { id: 2, done: true, title: 'Get a haircut' },
-      { id: 6, done: true, title: 'Beat Super Mario Odyssey' },
-      { id: 7, done: true, title: 'Check mailbox' },
+    const lorem =
+      'Lorem ipsum dolor sit amet, consectetur adipiscing ' +
+      'elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+    const todos: Todo[] = [
+      { id: 1, done: false, title: 'Eat icecream', description: lorem },
+      { id: 3, done: false, title: 'Water the plants', description: lorem },
+      { id: 4, done: false, title: 'Finish app', description: lorem },
+      { id: 5, done: false, title: 'Go to the gym', description: lorem },
+      { id: 8, done: false, title: 'Create more todos', description: lorem },
+      { id: 9, done: false, title: 'Refrain procrastinating', description: lorem },
+      { id: 2, done: true, title: 'Get a haircut', description: lorem },
+      { id: 6, done: true, title: 'Beat Super Mario Odyssey', description: lorem },
+      { id: 7, done: true, title: 'Check mailbox', description: lorem },
     ];
     return {todos};
   }

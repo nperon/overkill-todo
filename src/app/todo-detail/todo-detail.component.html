@@ -1,0 +1,13 @@
+<mat-card class="todo-card">
+  <mat-card-title
+    [ngClass]="{ 'done-todo-title': todo.done }"
+  >{{todo.title}}</mat-card-title>
+  <mat-card-content
+  >{{todo.description}}</mat-card-content>
+  <mat-card-footer
+    (click)="goBack()"
+    class="footer-text"
+  >
+    <button mat-button>Back to Todos list</button>
+  </mat-card-footer>
+</mat-card>
