@@ -91,6 +91,10 @@ THE SOFTWARE.
 
 @angular/material/checkbox
 
+@angular/material/dialog
+
+@angular/material/form-field
+
 @angular/material/sort
 
 @angular/material/table
