@@ -1,5 +1,5 @@
 import { Todo } from '../models/todo';
-import { TOGGLE_DONE, ADD_TODO } from './todos.actions';
+import { TOGGLE_DONE, ADD_TODO, CLEAR_ALL_TODOS } from './todos.actions';
 
 export function todosReducer(state = [], action) {
   switch ( action.type ) {
@@ -12,7 +12,7 @@ export function todosReducer(state = [], action) {
       );
       return [
           ...state,
-          { id: largestid + 1, title: action.title, done: action.value }
+          { id: largestid + 1, title: action.title, done: action.value, description: action.description }
         ]
         .sort( compare );
     case TOGGLE_DONE:
@@ -25,6 +25,8 @@ export function todosReducer(state = [], action) {
           }
         )
         .sort( compare );
+    case CLEAR_ALL_TODOS:
+      return [];
     default:
       return state;
   }

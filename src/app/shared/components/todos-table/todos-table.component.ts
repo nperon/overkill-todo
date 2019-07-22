@@ -39,7 +39,7 @@ export class TodosTableComponent implements AfterViewInit, OnInit {
   }
 
   toggle(row: Todo, event: MatCheckboxChange) {
-    const action = new UpdateAndFetchTodoAction(row.id, row.title, event.checked);
+    const action = new UpdateAndFetchTodoAction(row.id, row.title, event.checked, row.description);
     this.store.dispatch(action);
   }
 }

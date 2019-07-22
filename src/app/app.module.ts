@@ -4,11 +4,11 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
   NO_ERRORS_SCHEMA
 } from '@angular/core';
+
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatToolbarModule } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { TodosTableComponent } from './shared/components/todos-table/todos-table.component';
 import { MatTableModule } from '@angular/material/table';
@@ -19,15 +19,18 @@ import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './shared/reducers';
 import { EffectsModule } from '@ngrx/effects';
-import { TodosEffects } from './shared/reducers/todos.effects';
+import { TodoDetailComponent } from './todo-detail/todo-detail.component';
+import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './shared/services/in-memory-data.service';
+import { TodosEffects } from './shared/reducers/todos.effects';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    TodosTableComponent
+    TodosTableComponent,
+    TodoDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,8 @@ import { InMemoryDataService } from './shared/services/in-memory-data.service';
     MatPaginatorModule,
     MatSortModule,
     MatCheckboxModule,
+    MatCardModule,
+    MatButtonModule,
     FormsModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
