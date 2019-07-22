@@ -20,7 +20,7 @@ export class TodosTableComponent implements AfterViewInit, OnInit {
   dataSource: TodosTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'title', 'done'];
+  displayedColumns = ['title', 'done'];
 
   constructor(
     private store: Store<{todos: Todo[]}>,

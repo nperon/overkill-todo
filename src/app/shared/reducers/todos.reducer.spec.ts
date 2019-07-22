@@ -52,7 +52,7 @@ describe('todosReducer', () => {
     const text = 'one more todo';
     const todoState = false;
     const todoDescription = 'abcdef';
-    const action = new AddTodoAction(text, todoState, todoDescription);
+    const action = new AddTodoAction(5, text, todoState, todoDescription);
     const newState = todosReducer(todosState, action);
     expect(newState.length).toBe(expectedState.length + 1);
     const expectedNew: Todo = newState[0];
