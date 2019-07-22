@@ -17,9 +17,11 @@ export class TodoService {
     return this.http.get<Todo[]>(this.todosUrl);
   }
 
-  /** PUT: update the todo_ on the server */
-  updateTodo(todo: Todo): Observable<any> {
-    return this.http.put(this.todosUrl, todo, httpOptions);
+  updateTodo(todo: Todo): Observable<Todo> {
+    return this.http.put<Todo>(this.todosUrl, todo, httpOptions);
   }
 
+  createTodo(todo: Todo): Observable<Todo> {
+    return this.http.post<Todo>(this.todosUrl, todo, httpOptions);
+  }
 }

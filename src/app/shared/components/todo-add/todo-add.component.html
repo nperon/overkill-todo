@@ -1,0 +1,36 @@
+<mat-card class="todo-card">
+  <mat-card-title>New Todo</mat-card-title>
+  <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+    <mat-card-content>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Title"
+          formControlName=title
+        />
+        <mat-error *ngIf="f.title.errors && f.title.touched">
+          Title is required
+        </mat-error>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-content>
+      <mat-form-field>
+      <textarea
+        matInput
+        placeholder="Description"
+        matTextareaAutosize
+        formControlName=description
+      ></textarea>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-footer>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        class="todo-submit-button"
+        [disabled]="!todoForm.valid"
+      >Submit Form</button>
+    </mat-card-footer>
+  </form>
+</mat-card>

@@ -9,7 +9,7 @@ export class ToggleDoneAction {
 
 export class AddTodoAction {
   readonly type = ADD_TODO;
-  constructor(public title: string, public value: boolean, public description: string) {}
+  constructor(public id: number, public title: string, public value: boolean, public description: string) {}
 }
 
 export class ClearAllTodosAction {

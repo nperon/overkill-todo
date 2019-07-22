@@ -4,15 +4,9 @@ import { TOGGLE_DONE, ADD_TODO, CLEAR_ALL_TODOS } from './todos.actions';
 export function todosReducer(state = [], action) {
   switch ( action.type ) {
     case ADD_TODO:
-      const largestid = state.reduce(
-        ( builtUp, item ) => {
-          return item.id > builtUp ? item.id : builtUp;
-        },
-        0
-      );
       return [
           ...state,
-          { id: largestid + 1, title: action.title, done: action.value, description: action.description }
+          { id: action.id, title: action.title, done: action.value, description: action.description }
         ]
         .sort( compare );
     case TOGGLE_DONE:
