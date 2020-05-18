@@ -5,7 +5,7 @@ import { MatTable } from '@angular/material/table';
 import { TodosTableDataSource } from './todos-table-datasource';
 import { Todo } from '../../models/todo';
 import { Store } from '@ngrx/store';
-import { MatCheckboxChange } from '@angular/material';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 import { FetchTodosAction, UpdateAndFetchTodoAction } from '../../reducers/todos.effects';
 
 @Component({

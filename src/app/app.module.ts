@@ -7,16 +7,14 @@ import {
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  MatButtonModule,
-  MatDialogModule,
-  MatToolbarModule,
-  MatCheckboxModule,
-  MatCardModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatDividerModule
-} from '@angular/material';
+import { MatInputModule } from '@angular/material/input';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule} from '@angular/material/button';
+import { MatToolbarModule} from '@angular/material/toolbar';
+import { MatDialogModule} from '@angular/material/dialog';
+import { MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCardModule} from '@angular/material/card';
+import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
